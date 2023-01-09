@@ -67,9 +67,13 @@ function parseToMap(icsStr, uidMap) {
  *
  * @returns {Map} in the same format as `ParseToMap`
  */
-async function icsToCSV() {
-  const session = process.env.SESSION;
-  const pageMap = await getCalendar(session);
+async function icsToCSV(CANVAS_API_TOKEN, SESSION, CANVAS_ID) {
+  // const session = process.env.SESSION;
+  const pageMap = await getCalendar(
+    (CANVAS_API_TOKEN = CANVAS_API_TOKEN),
+    (CANVAS_ID = CANVAS_ID),
+    (SESSION = SESSION)
+  );
 
   let uidMap = new Map();
 
@@ -82,7 +86,5 @@ async function icsToCSV() {
 
   return uidMap;
 }
-
-icsToCSV();
 
 module.exports = icsToCSV;

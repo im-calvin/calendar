@@ -110,3 +110,5 @@ data.json
 .venv
 
 .vscode
+
+.env
